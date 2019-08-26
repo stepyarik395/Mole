@@ -31,7 +31,6 @@ import Mole from './Mole';
 						<div onClick={this.props.tick} className="item"></div>
 						<div onClick={this.props.tick} className="item"></div>
 					</div>
-					<button onClick={this.props.start}>Start game</button>
 		</div>
 
 			

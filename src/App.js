@@ -5,6 +5,7 @@ import Field from "./Components/Field/Field";
 import SideBar from "./Components/SideBar/SideBar";
 import ModalWin from './Components/ModalWin/ModalWin';
 import ModalLose from "./Components/ModalLose/ModalLose";
+import ModalStart from "./Components/ModalStart/ModalStart";
 
 
 
@@ -20,12 +21,14 @@ constructor(props){
   this.timerSpeed = this.timerSpeed;
   this.parag = this.parag;
   this.target = this.target;
+  this.func2 = this.func2;
   this.state = {
     winScore:1,
     loseScore:0,
     speed:5,
     diff:1,
     speedrandomimage:1000,
+    modal:true
   };
   this.scoreCount = this.scoreCount.bind(this);
   this.Start = this.Start.bind(this);
@@ -34,9 +37,9 @@ constructor(props){
 }
 
 
+componentDidMount() {
 
-
-
+}
 
 
 StopAndPlay(){
@@ -45,11 +48,9 @@ StopAndPlay(){
   setTimeout(()=>{
     this.target.style.background = "lightblue";
     this.parag.remove();
-  },100)
-  setTimeout(()=>{
     this.StartInervalImage();
     this.StartInervalScore();
-  },110)
+  },200)
 
 }
 
@@ -127,17 +128,22 @@ Start(){
 
 
   render(){
+
     if(this.state.loseScore===3){
-      return <ModalLose />;;
+      return <ModalLose />
 
     }
     if(this.state.winScore===100){
-      return  <ModalWin />;
+      return  <ModalWin />
 
     }
+
+ 
     return (
       <div>
+        
       <div className="wrapper">
+      {this.state.modal ? <ModalStart /> : null}
         <Field tick={this.scoreCount} start={this.Start}></Field>
         <SideBar time={this.state.speed} diff={this.state.diff} losetick={this.state.loseScore} wintick={this.state.winScore}></SideBar>
       </div>
