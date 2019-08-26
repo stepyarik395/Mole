@@ -39,3 +39,25 @@ img{
     background-size:cover;
     background-image: url("../src/img/mole.jpg");
 }
+.wrapper__modal__lose{
+    text-align: center;
+    border-radius: 10px;
+    background-color: lightgreen;
+    width:800px;
+    height: 500px;
+}
+.wrapper__modal__win{
+    text-align: center;
+    border-radius: 10px;
+    background-color:rgba(0, 0, 0, 0.3);
+    width:800px;
+    height: 500px;
+}
+.global__wrapper__modal__win{
+    left:30%;
+    position: absolute;
+}
+.global__wrapper__modal__lose{
+    left:30%;
+    position: absolute;
+}

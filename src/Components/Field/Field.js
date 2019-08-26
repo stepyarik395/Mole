@@ -12,9 +12,14 @@ import Mole from './Mole';
 	}
 
 
+	
+
+
 
 
 	render(){
+
+		
 		
 		return(
 			<div>
