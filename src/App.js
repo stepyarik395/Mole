@@ -40,11 +40,11 @@ cathEnter(e){
 }
 componentDidMount(){
  window.addEventListener('keyup',this.cathEnter);
+ 
 }
-componentDidUpdate(){
-  clearInterval(this.timerSpeed);
 
-}
+
+
 StopAndPlay(){
   clearInterval(this.timerRandPicture);
   clearInterval(this.timerSpeed);
@@ -123,16 +123,17 @@ Start(){
   this.StartInervalImage();
 }
   render(){
-    if(this.state.loseScore===3){
-      return <ModalLose />
+    if(this.state.loseScore === 3 ||this.state.winScore === 100 ){
+      clearInterval(this.timerSpeed);
+      clearInterval(this.timerRandPicture);
     }
-    if(this.state.winScore===100){
-      return  <ModalWin />
-    }
+    
     return (
       <div>
         <div className="wrapper">
           {this.state.modal ? <ModalStart /> : null}
+          {this.state.loseScore === 3 ? <ModalLose /> : null}
+          {this.state.winScore === 100 ? <ModalWin /> : null}
         <Field tick={this.scoreCount} start={this.Start}></Field>
         <SideBar time={this.state.speed} diff={this.state.diff} losetick={this.state.loseScore} wintick={this.state.winScore}></SideBar>
       </div>
