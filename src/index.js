@@ -7,6 +7,6 @@ import './index.css';
 
 
 ReactDOM.render(
-  <App isSuccess={true} />,
+  <App />,
   document.getElementById('root')
 );

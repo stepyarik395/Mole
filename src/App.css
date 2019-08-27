@@ -1,4 +1,5 @@
 
+
 img{
   background-image:url("./img/mole.jpg");
     height: 100px;
@@ -16,6 +17,7 @@ img{
     display: flex;
 }
 .item{
+    cursor: pointer;
     border:1px solid orange;
     border-radius: 10px;
     margin:1rem;
@@ -42,23 +44,36 @@ img{
 .wrapper__modal__lose{
     text-align: center;
     border-radius: 10px;
-    background-color: lightgreen;
-    width:800px;
+    background-color: #FA8072;
+    width:1170px;
     height: 500px;
+}
+.wrapper__modal__lose h2{
+    font-family: 'Teko', sans-serif;
+    color:white;
+    margin-top:10px;
+    font-size: 3rem;
+    text-transform: uppercase;
 }
 .wrapper__modal__win{
     text-align: center;
     border-radius: 10px;
-    background-color:rgba(0, 0, 0, 0.3);
-    width:800px;
+    background-color:#008000;
+    width:1170px;
     height: 500px;
 }
+.wrapper__modal__win h2{
+    font-size: 3rem;
+    margin-top:10px;
+    text-transform: uppercase;
+    color:white
+}
 .global__wrapper__modal__win{
-    left:30%;
+    left:12%;
     position: absolute;
 }
 .global__wrapper__modal__lose{
-    left:30%;
+    left:12%;
     position: absolute;
 }
 .wrapper__modal__start{

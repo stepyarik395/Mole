@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import Mole from './Mole';
 
 
 
@@ -7,9 +6,9 @@ import Mole from './Mole';
 
 
  class Field extends Component{
-	constructor(props){
-		super(props);
-	}
+	// constructor(props){
+	// 	super(props);
+	// }
 
 
 	

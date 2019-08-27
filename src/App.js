@@ -14,32 +14,59 @@ import ModalStart from "./Components/ModalStart/ModalStart";
 
 
 class App extends Component{
-
 constructor(props){
   super(props)
   this.timerRandPicture = this.timerRandPicture;
   this.timerSpeed = this.timerSpeed;
-  this.parag = this.parag;
+  this.createTag = this.createTag;
   this.target = this.target;
-  this.func2 = this.func2;
   this.state = {
     winScore:1,
     loseScore:0,
     speed:5,
     diff:1,
-    speedrandomimage:1000,
+    speedRandomImage:1000,
     modal:true
   };
   this.scoreCount = this.scoreCount.bind(this);
   this.Start = this.Start.bind(this);
   this.StartInervalImage = this.StartInervalImage.bind(this);
+  this.cathEnter = this.cathEnter.bind(this);
  
 }
 
 
-componentDidMount() {
-
+cathEnter(e){
+  if(e.keyCode === 13){
+    this.setState({
+      modal:!this.state.modal
+    })
+    setTimeout(()=>{
+      this.Start();
+      window.removeEventListener('keyup',this.cathEnter);
+        },200)
+  }
 }
+
+
+
+componentDidMount(){
+ window.addEventListener('keyup',this.cathEnter);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 StopAndPlay(){
@@ -47,7 +74,7 @@ StopAndPlay(){
   clearInterval(this.timerSpeed);
   setTimeout(()=>{
     this.target.style.background = "lightblue";
-    this.parag.remove();
+    this.createTag.remove();
     this.StartInervalImage();
     this.StartInervalScore();
   },200)
@@ -76,13 +103,13 @@ StartInervalScore(){
 
 StartInervalImage(){
   let arr=document.querySelectorAll('.item');
-  this.parag=document.createElement("img");
+  this.createTag=document.createElement("img");
   let uniqueRandom = require('unique-random');
   let random = uniqueRandom(0, 5);
    this.timerRandPicture  = setInterval(() =>{
     let randomNumber = random();
-    arr[randomNumber].appendChild(this.parag);    
-  },this.state.speedrandomimage);
+    arr[randomNumber].appendChild(this.createTag);    
+  },this.state.speedRandomImage);
 
 }
 
@@ -104,7 +131,8 @@ else{
   this.target.style.background = "red";
   this.setState(function(state){
 return {
-  loseScore: state.loseScore + 1
+  loseScore: state.loseScore + 1,
+  speed:this.state.speed = 5
 }
   });
 
@@ -113,10 +141,10 @@ return {
 if(this.state.winScore % 10 === 0){
   this.setState({
     diff: this.state.diff + 1,
-    speedrandomimage:this.state.speedrandomimage - 200
+    speedRandomImage:this.state.speedRandomImage - 50
 
   })
-  console.log(this.state.speedrandomimage);
+  console.log(this.state.speedRandomImage);
   }
 }
 
@@ -128,7 +156,6 @@ Start(){
 
 
   render(){
-
     if(this.state.loseScore===3){
       return <ModalLose />
 
@@ -141,7 +168,6 @@ Start(){
  
     return (
       <div>
-        
       <div className="wrapper">
       {this.state.modal ? <ModalStart /> : null}
         <Field tick={this.scoreCount} start={this.Start}></Field>
