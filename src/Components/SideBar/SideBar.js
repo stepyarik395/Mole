@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
- class SideBar extends Component{
+class SideBar extends Component{
 	render(){
 		return(
     	<div className="wrapper__side__bar">
@@ -10,10 +10,7 @@ import React,{Component} from 'react';
         <span>You falied: &nbsp;{this.props.losetick} </span>
         <span>Time:&nbsp;{this.props.time}&nbsp;мс</span>
       </div>
-        );
-
-    }
-
-       
+    );
+  }
 }
 export default SideBar;
