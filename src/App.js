@@ -39,7 +39,6 @@ cathEnter(e){
 }
 componentDidMount(){
  window.addEventListener('keyup',this.cathEnter);
- 
 }
 
 
@@ -64,7 +63,7 @@ StartInervalScore(){
       });
         this.setState({
           speed: this.state.speed = 5
-        });
+      });
     }
     else{
     this.setState({
@@ -139,8 +138,7 @@ Start(){
       </div>
     );
 
-  }
-    
+  }  
 }
 export default App;
 
